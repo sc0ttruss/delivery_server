@@ -117,7 +117,7 @@ bash 'create the delivery Enterprise' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
-  delivery-ctl create-enterprise #{node['delivery_server']['organisation']} --ssh-pub-key-file=/etc/delivery/#{node['delivery_server']['organisation']}_ssh_key.pub >> /etc/delivery/passwords.txt
+  delivery-ctl create-enterprise #{node['delivery_server']['organisation']} --ssh-pub-key-file=/etc/delivery/#{node['delivery_server']['organisation']}_ssh_key.pub > /etc/delivery/passwords.txt
   EOH
   not_if "delivery-ctl list-enterprises |grep #{node['delivery_server']['organisation']}"
 end
