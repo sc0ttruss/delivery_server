@@ -121,3 +121,12 @@ bash 'create the delivery Enterprise' do
   EOH
   not_if "delivery-ctl list-enterprises |grep #{node['delivery_server']['organisation']}"
 end
+
+remote_file '/mnt/share/chef/passwords.txt' do
+  source 'file:///etc/delivery/passwords.txt'
+  owner 'root'
+  group 'root'
+  mode 00755
+  only_if { ::File.directory?("#{node['delivery_server']['kitchen_shared_folder']}") }
+  # checksum 'abc123'
+end

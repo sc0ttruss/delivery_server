@@ -4,6 +4,7 @@
 # You can also replae file:// with https:// for remote repos.
 default['delivery_server']['use_package_manager'] = false
 default['delivery_server']['base_package_url'] = 'file:///mnt/share/chef'
+default['delivery_server']['kitchen_shared_folder'] = '/mnt/share/chef'
 # note the package "name" must match the name used by yum/rpm etc.
 # get your package list here https://packages.chef.io/stable/el/7/
 default['delivery_server']['organisation'] = 'myorg'
