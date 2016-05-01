@@ -111,6 +111,17 @@ remote_file "/mnt/share/chef/#{node['delivery_server']['organisation']}_ssh_key"
   # checksum 'abc123'
 end
 
+Copy the myorge key to builder_ssh.  Need to fix this on docs and build node
+
+remote_file "/mnt/share/chef/builder_key" do
+  # source 'http://myfile'
+  source "file:///etc/delivery/#{node['delivery_server']['organisation']}_ssh_key"
+  owner 'root'
+  group 'root'
+  mode 00755
+  # checksum 'abc123'
+end
+
 # Create the Enterprise
 
 bash 'create the delivery Enterprise' do
