@@ -111,7 +111,7 @@ remote_file "/mnt/share/chef/#{node['delivery_server']['organisation']}_ssh_key"
   # checksum 'abc123'
 end
 
-Copy the myorge key to builder_ssh.  Need to fix this on docs and build node
+# Copy the myorg key to builder_ssh.  Need to fix this on docs and build node
 
 remote_file "/mnt/share/chef/builder_key" do
   # source 'http://myfile'
@@ -141,3 +141,24 @@ remote_file '/mnt/share/chef/passwords.txt' do
   only_if { ::File.directory?("#{node['delivery_server']['kitchen_shared_folder']}") }
   # checksum 'abc123'
 end
+
+# Create the enterprise User, delivery
+
+bash 'create the delivery Enterprise user' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+  delivery-ctl create-user #{node['delivery_server']['enterprise']} delivery > /etc/delivery/deliverypassword.txt
+  EOH
+  #not_if "delivery-ctl list-enterprises |grep #{node['delivery_server']['organisation']}"
+end
+
+remote_file '/mnt/share/chef/deliverypassword.txt' do
+  source 'file:///etc/delivery/deliverypassword.txt'
+  owner 'root'
+  group 'root'
+  mode 00755
+  only_if { ::File.directory?("#{node['delivery_server']['kitchen_shared_folder']}") }
+  # checksum 'abc123'
+  end
+
