@@ -61,9 +61,9 @@ template '/etc/delivery/delivery.rb' do
   mode 00755
 end
 
-remote_file '/etc/delivery/delivery.pem' do
+remote_file '/etc/delivery/srv-delivery.pem' do
   # source 'http://myfile'
-  source "#{node['delivery_server']['base_package_url']}/delivery.pem"
+  source "#{node['delivery_server']['base_package_url']}/srv-delivery.pem"
   owner 'root'
   group 'root'
   mode 00755
@@ -161,4 +161,3 @@ remote_file '/mnt/share/chef/deliverypassword.txt' do
   only_if { ::File.directory?("#{node['delivery_server']['kitchen_shared_folder']}") }
   # checksum 'abc123'
   end
-
