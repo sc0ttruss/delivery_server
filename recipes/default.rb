@@ -20,14 +20,14 @@ node['delivery_server']['packages'].each do |name, versioned_name|
   end
 end # Loop
 
-# remote_file '/var/tmp/delivery-0.4.75-1.el7.x86_64.rpm' do
-#   source 'file:///mnt/share/chef/delivery-0.4.75-1.el7.x86_64.rpm'
+# remote_file '/var/tmp/delivery-0.4.437-1.el7.x86_64.rpm' do
+#   source 'file:///mnt/share/chef/delivery-0.4.437-1.el7.x86_64.rpm'
 #   owner 'root'
 #   group 'root'
 # end
 #
 # package 'delivery' do
-#   source '/var/tmp/delivery-0.4.75-1.el7.x86_64.rpm'
+#   source '/var/tmp/delivery-0.4.437-1.el7.x86_64.rpm'
 #   action :install
 # end
 
