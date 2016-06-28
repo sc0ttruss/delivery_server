@@ -148,7 +148,7 @@ bash 'create the delivery Enterprise user' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
-  delivery-ctl create-user #{node['delivery_server']['enterprise']} delivery > /etc/delivery/deliverypassword.txt
+  delivery-ctl create-user #{node['delivery_server']['enterprise']} srv-delivery > /etc/delivery/deliverypassword.txt
   EOH
   #not_if "delivery-ctl list-enterprises |grep #{node['delivery_server']['organisation']}"
 end
