@@ -9,7 +9,7 @@ default['delivery_server']['kitchen_shared_folder'] = '/mnt/share/chef'
 # get your package list here https://packages.chef.io/stable/el/7/
 default['delivery_server']['enterprise'] = 'myorg'
 default['delivery_server']['organisation'] = 'myorg'
-default['delivery_server']['packages']['delivery'] = 'delivery-0.4.437-1.el7.x86_64.rpm'
+default['delivery_server']['packages']['delivery'] = 'delivery-0.4.522-1.el7.x86_64.rpm'
 
 default['delivery_server']['delivery_license'] = 'delivery.license'
 default['delivery_server']['delivery_user_private_key'] = 'srv-delivery.pem'
