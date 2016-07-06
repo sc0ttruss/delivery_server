@@ -12,5 +12,8 @@ default['delivery_server']['organisation'] = 'myorg'
 default['delivery_server']['packages']['delivery'] = 'delivery-0.4.522-1.el7.x86_64.rpm'
 
 default['delivery_server']['delivery_license'] = 'delivery.license'
-default['delivery_server']['delivery_user_private_key'] = 'srv-delivery.pem'
+default['delivery_server']['chef_username'] = 'srv-delivery'
+default['delivery_server']['chef_user_private_key'] = 'srv-delivery.pem'
 default['delivery_server']['delivery_org_key'] = "#{node['delivery_server']['organisation']}_ssh_key"
+default['delivery_server']['url_chef'] = 'https://chef.myorg.chefdemo.net'
+default['delivery_server']['url']['delivery'] = 'delivery.myorg.chefdemo.net'

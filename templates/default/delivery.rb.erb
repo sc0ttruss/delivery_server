@@ -1,4 +1,4 @@
-delivery_fqdn 'delivery.myorg.chefdemo.net'
-delivery['chef_username'] = 'srv-delivery'
-delivery['chef_private_key'] = '/etc/delivery/srv-delivery.pem'
-delivery['chef_server'] = 'https://chef.myorg.chefdemo.net/organizations/myorg'
+delivery_fqdn "<%=node'delivery_server']['url']['delivery']%>"
+delivery['chef_username'] = "<%=node['delivery_server']['chef_username']%>"
+delivery['chef_private_key'] = "/etc/delivery/<%=node['delivery_server']['chef_user_private_key']%>"
+delivery['chef_server'] = "<%=node['delivery_server']['url_chef']%>/organizations/<%=node['delivery_server']['organisation']%>"
